@@ -38,6 +38,9 @@ public:
 		for(size_t i = Top; i >=1; i--)
 			std::cout << st[i] << '\n';
 	}
+	~Stack(){
+		delete[] st;
+	}
 	friend void operator<< (Stack<T> &stack, T var){stack.push(var);}
 	friend void operator>> (Stack<T> &stack, T var){stack.pop();}
 	Stack& operator= (const Stack &stack){
