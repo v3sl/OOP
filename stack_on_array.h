@@ -4,9 +4,9 @@
 class Stack{
 private:
 	enum {MAX = 10};
-	int* st = new int[MAX];
-public:
 	int Top;
+public:
+	int* st = new int[MAX];
 	Stack () {Top = 0;}
 	int top(){
 		if(IsEmpty())
@@ -18,13 +18,15 @@ public:
 		if(IsEmpty())
 			throw std::runtime_error("Stack is empty");
 		int answer = st [Top--];
-		for(int i = 1 ; i <= Top; i++)
-			st[i] = st[i+1];
+		for(int i = 1 ; i <= Top; i++) {
+			st[i-1] = st[i];
+			st[0] = NULL;
+		}
 		return answer;
 	}
 	bool IsEmpty(){return !Top;}
 	void print(){
-		for(int i = 1; i <= Top; i++)
+		for(int i = Top; i >=1; i--)
 			std::cout << st[i] << '\n';
 	}
 };
