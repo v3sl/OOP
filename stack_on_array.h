@@ -3,7 +3,7 @@
 
 class Stack{
 private:
-	enum {MAX = 10};
+	enum {MAX = INT_MAX};
 	int Top;
 public:
 	int* st = new int[MAX];
